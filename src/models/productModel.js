@@ -33,6 +33,12 @@ class product {
     };
   }
 
+  // Static method to retrieve all products
+  static async find() {
+  const [rows] = await db.query("SELECT * FROM products");
+  return rows;
+}
+
   static async findById(id) {
     const [rows] = await db.query(
       "SELECT * FROM products WHERE id = ?",
